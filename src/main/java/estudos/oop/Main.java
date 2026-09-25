@@ -5,15 +5,18 @@ public class Main {
         System.out.println("Hello and welcome!");
         System.out.println("---");
 
-        Moto minhaMoto = new Moto("Honda", 100);
-        minhaMoto.getInfo();
+        AtivoFinanceiro itau = new AtivoFinanceiro("ITUB4", 32.50, 100);
 
-        minhaMoto.acelerar();
-        System.out.println("Velocidade atual: " + minhaMoto.getVelocidade());
+        itau.calcularValorTotal();
 
-        System.out.println("---");
+        itau.comprar(50);
 
-        Moto minhaOutra = new Moto("Yamaha", 120);
-        minhaOutra.getInfo();
+        AtivoFinanceiro ativoNulo = null;
+
+        try {
+            ativoNulo.calcularValorTotal();
+        } catch (NullPointerException e) {
+            System.out.println("Erro: Tentativa de acessar um objeto nulo.");
+        }
     }
 }
